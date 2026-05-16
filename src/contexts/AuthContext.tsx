@@ -15,7 +15,7 @@ type AuthProviderProps = {
 
 export function AuthProvider({ children }: AuthProviderProps) {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
-  const [isAuthReady, setIsAuthReady] = useState(!auth);
+  const [isAuthReady, setIsAuthReady] = useState(false);
 
   useEffect(() => {
     if (!auth) {
@@ -29,18 +29,10 @@ export function AuthProvider({ children }: AuthProviderProps) {
   }, []);
 
   const login = useCallback(async (email: string, password: string) => {
-    if (!auth) {
-      throw new Error("Firebase is not configured. Fill the VITE_FIREBASE_* values in .env.");
-    }
-
     await signInWithEmailAndPassword(auth, email, password);
   }, []);
 
   const logout = useCallback(async () => {
-    if (!auth) {
-      return;
-    }
-
     await signOut(auth);
   }, []);
 
@@ -48,7 +40,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     () => ({
       currentUser,
       isAuthReady,
-      isConfigured: Boolean(auth),
+      isConfigured: true,
       login,
       logout,
     }),
