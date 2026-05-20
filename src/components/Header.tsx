@@ -1,18 +1,59 @@
 import { NavLink } from "react-router-dom";
 import Button from "./Button";
-
-const navItems = [
-  { label: "Work", path: "/work" },
-  { label: "Contact", path: "/contact" },
-  { label: "Admin", path: "/admin" },
-];
+import { useSiteContent } from "../contexts/site-content-store";
 
 export default function Header() {
+  const { content, isContentReady } = useSiteContent();
+
+  if (!isContentReady) {
+    return (
+      <header className="border-b border-[#e6e1e5] bg-[#fbf7fa]">
+        <div className="mx-auto flex max-w-[1920px] items-center justify-between px-5 py-5 sm:px-8 lg:px-24">
+          <span className="text-xl font-black tracking-[-0.03em] text-[#111827] sm:text-2xl">
+            STUDIO_GALLERY
+          </span>
+          <div
+            aria-hidden="true"
+            className="h-5 w-5 rounded-full border border-[#cfd3da] p-0.5"
+          >
+            <span className="block h-full w-full animate-spin rounded-full border-2 border-transparent border-t-[#111827]" />
+          </div>
+        </div>
+      </header>
+    );
+  }
+
+  if (!content) {
+    return (
+      <header className="border-b border-[#e6e1e5] bg-[#fbf7fa]">
+        <div className="mx-auto flex max-w-[1920px] items-center justify-between px-5 py-5 sm:px-8 lg:px-24">
+          <span className="text-xl font-black tracking-[-0.03em] text-[#111827] sm:text-2xl">
+            STUDIO_GALLERY
+          </span>
+        </div>
+      </header>
+    );
+  }
+
+  const siteContent = content;
+  const navItems = [
+    { label: siteContent.navigation.work, path: "/work" },
+    { label: siteContent.navigation.contact, path: "/contact" },
+    { label: siteContent.navigation.admin, path: "/admin" },
+  ];
+
+  function handleViewReel() {
+    window.open(siteContent.navigation.viewReelUrl, "_blank", "noopener,noreferrer");
+  }
+
   return (
     <header className="border-b border-[#e6e1e5] bg-[#fbf7fa]">
       <div className="mx-auto flex max-w-[1920px] items-center justify-between px-5 py-5 sm:px-8 lg:px-24">
-        <NavLink to="/work" className="text-xl font-black tracking-[-0.03em] text-[#111827] sm:text-2xl">
-          STUDIO_GALLERY
+        <NavLink
+          to="/work"
+          className="text-xl font-black tracking-[-0.03em] text-[#111827] sm:text-2xl"
+        >
+          {siteContent.brandName}
         </NavLink>
 
         <nav className="hidden items-center gap-7 text-lg text-[#657086] md:flex lg:gap-9">
@@ -34,7 +75,9 @@ export default function Header() {
         </nav>
 
         <div className="hidden xl:block">
-          <Button className="rounded-xl px-7">View Reel</Button>
+          <Button className="rounded-xl px-7" onClick={handleViewReel} type="button">
+            {siteContent.navigation.viewReel}
+          </Button>
         </div>
       </div>
 

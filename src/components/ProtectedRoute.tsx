@@ -1,5 +1,6 @@
 import { Navigate, useLocation } from "react-router-dom";
 import type { ReactElement } from "react";
+import LoadingState from "./LoadingState";
 import { useAuth } from "../hooks/useAuth";
 
 type ProtectedRouteProps = {
@@ -12,9 +13,9 @@ export default function ProtectedRoute({ children }: ProtectedRouteProps) {
 
   if (!isAuthReady) {
     return (
-      <div className="grid min-h-screen place-items-center bg-[#fbf7fa] text-xs font-bold uppercase tracking-[0.35em] text-[#718096]">
-        Loading access
-      </div>
+      <main className="min-h-screen bg-[#fbf7fa]">
+        <LoadingState />
+      </main>
     );
   }
 

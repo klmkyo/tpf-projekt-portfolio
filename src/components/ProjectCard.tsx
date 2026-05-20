@@ -1,5 +1,6 @@
 import { cva, type VariantProps } from "class-variance-authority";
-import type { Project } from "../data/projects";
+import type { ButtonHTMLAttributes } from "react";
+import type { SiteProject } from "../data/siteContentModel";
 import { cn } from "../lib/utils";
 
 const projectImageVariants = cva("overflow-hidden rounded-[3px] bg-[#e9e4e8]", {
@@ -16,18 +17,25 @@ const projectImageVariants = cva("overflow-hidden rounded-[3px] bg-[#e9e4e8]", {
 });
 
 type ProjectCardProps = VariantProps<typeof projectImageVariants> & {
-  project: Project;
+  project: SiteProject;
+  onClick?: ButtonHTMLAttributes<HTMLButtonElement>["onClick"];
+  className?: string;
+  isInteractive?: boolean;
 };
 
 export default function ProjectCard({
   project,
   orientation = project.orientation,
+  className,
+  onClick,
+  isInteractive = false,
 }: ProjectCardProps) {
-  return (
-    <article className="group">
+  const cardClassName = cn("group", className);
+  const content = (
+    <>
       <div className={cn(projectImageVariants({ orientation }))}>
         <img
-          src={project.image}
+          src={project.imageUrl}
           alt={project.title}
           className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
         />
@@ -38,6 +46,20 @@ export default function ProjectCard({
           {project.category}
         </p>
       </div>
-    </article>
+    </>
   );
+
+  if (onClick) {
+    return (
+      <button
+        type="button"
+        onClick={onClick}
+        className={cn(cardClassName, "block w-full text-left", isInteractive && "cursor-zoom-in")}
+      >
+        {content}
+      </button>
+    );
+  }
+
+  return <article className={cardClassName}>{content}</article>;
 }
