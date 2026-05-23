@@ -16,7 +16,7 @@ import type {
   SiteProject,
   SocialLink,
 } from "../data/siteContentModel";
-import { fileToCompressedDataUrl } from "../lib/imageData";
+import { uploadHeroImage, uploadProjectImage } from "../lib/storage";
 
 type ProjectKey = "title" | "category" | "orientation";
 
@@ -176,7 +176,7 @@ function AdminEditor({ initialContent, isConfigured, saveContent, logout }: Admi
   }
 
   async function handleHeroImageUpload(file: File) {
-    const url = await fileToCompressedDataUrl(file);
+    const url = await uploadHeroImage(file);
     setDraft((current) => ({
       ...current,
       hero: { ...current.hero, backgroundImageUrl: url },
@@ -184,7 +184,7 @@ function AdminEditor({ initialContent, isConfigured, saveContent, logout }: Admi
   }
 
   async function handleProjectImageUpload(projectId: string, file: File) {
-    const url = await fileToCompressedDataUrl(file);
+    const url = await uploadProjectImage(file, projectId);
 
     setDraft((current) => ({
       ...current,

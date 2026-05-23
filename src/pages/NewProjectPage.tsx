@@ -8,20 +8,18 @@ import TextField from "../components/TextField";
 import { useSiteContent } from "../contexts/site-content-store";
 import type { ProjectOrientation, SiteProject } from "../data/siteContentModel";
 import { createProjectId } from "../data/siteContentModel";
-import { fileToCompressedDataUrl } from "../lib/imageData";
-
-const emptyProject: SiteProject = {
-  id: createProjectId(),
-  title: "",
-  category: "",
-  imageUrl: "",
-  orientation: "wide",
-};
+import { uploadProjectImage } from "../lib/storage";
 
 export default function NewProjectPage() {
   const navigate = useNavigate();
   const { content, saveContent, isContentReady } = useSiteContent();
-  const [draft, setDraft] = useState<SiteProject>(emptyProject);
+  const [draft, setDraft] = useState<SiteProject>(() => ({
+    id: createProjectId(),
+    title: "",
+    category: "",
+    imageUrl: "",
+    orientation: "wide",
+  }));
   const [error, setError] = useState<string | null>(null);
   const [isSaving, setIsSaving] = useState(false);
 
@@ -60,7 +58,7 @@ export default function NewProjectPage() {
     try {
       await saveContent({
         ...currentContent,
-        projects: [...currentContent.projects, { ...draft, id: createProjectId() }],
+        projects: [...currentContent.projects, draft],
       });
       navigate("/admin");
     } catch (caughtError) {
@@ -71,7 +69,7 @@ export default function NewProjectPage() {
   }
 
   async function handleUpload(file: File) {
-    const url = await fileToCompressedDataUrl(file);
+    const url = await uploadProjectImage(file, draft.id);
     setDraft((current) => ({ ...current, imageUrl: url }));
   }
 
@@ -80,7 +78,7 @@ export default function NewProjectPage() {
       <h1 className="text-4xl font-black leading-[0.95] sm:text-6xl">Add New Project</h1>
       <p className="mt-5 max-w-2xl text-base leading-7 text-[#596171] sm:text-lg sm:leading-8">
         Create a new item for the shared content document. The image is uploaded to Firebase
-        as a compressed data URL stored in Firestore.
+        Storage and the resulting URL is stored in Firestore.
       </p>
 
       <form className="mt-12 grid gap-8" onSubmit={handleSubmit}>

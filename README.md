@@ -10,7 +10,7 @@ shared portfolio copy and projects without touching the code.
 - React Router
 - Tailwind CSS
 - Firebase Authentication
-- Firebase Firestore content editor with compressed image uploads
+- Firebase Firestore content editor with Firebase Storage image uploads
 - Contentsquare UXA
 - Hotjar
 - Google Analytics 4
@@ -55,7 +55,8 @@ measurementId: "G-Y3JMG0XGBG"
 
 Firebase Email/Password sign-in must be enabled in Firebase Console. Create the admin user there, then sign in through `/login`.
 The admin content editor reads and writes the `siteContent/portfolio` document in Firestore. The document must exist before the public pages can render content.
-Project and hero images are uploaded from the admin UI, compressed in the browser, and stored as `data:` URLs inside the same Firestore document. No separate Storage bucket setup is required for this project.
+Project and hero images are uploaded from the admin UI, compressed in the browser, stored in Firebase Storage, and written back to Firestore as download URLs.
+Existing `data:` URLs are migrated automatically when an authenticated admin loads or saves content.
 
 ## Scripts
 
