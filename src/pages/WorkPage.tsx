@@ -3,6 +3,7 @@ import Button from "../components/Button";
 import LoadingState from "../components/LoadingState";
 import ProjectCard from "../components/ProjectCard";
 import ProjectLightbox from "../components/ProjectLightbox";
+import ReelLightbox from "../components/ReelLightbox";
 import { useSiteContent } from "../contexts/site-content-store";
 
 function replaceArchiveWithPortfolio(label: string) {
@@ -12,6 +13,7 @@ function replaceArchiveWithPortfolio(label: string) {
 export default function WorkPage() {
   const { content, isContentReady } = useSiteContent();
   const [activeProjectIndex, setActiveProjectIndex] = useState<number | null>(null);
+  const [isReelOpen, setIsReelOpen] = useState(false);
   const portfolioSectionRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -54,7 +56,7 @@ export default function WorkPage() {
     activeProjectIndex === null ? null : publicProjects[activeProjectIndex] ?? null;
 
   function openReel() {
-    window.open(siteContent.navigation.viewReelUrl, "_blank", "noopener,noreferrer");
+    setIsReelOpen(true);
   }
 
   function openPortfolio() {
@@ -136,6 +138,14 @@ export default function WorkPage() {
           onPrevious={showPreviousProject}
           onNext={showNextProject}
           onClose={() => setActiveProjectIndex(null)}
+        />
+      )}
+
+      {isReelOpen && (
+        <ReelLightbox
+          reelUrl={siteContent.navigation.viewReelUrl}
+          title={siteContent.navigation.viewReel}
+          onClose={() => setIsReelOpen(false)}
         />
       )}
     </main>
