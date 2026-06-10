@@ -1,4 +1,4 @@
-import archiveFrame from "../assets/extracted/figma-002.png";
+import portfolioFrame from "../assets/extracted/figma-002.png";
 import cameraStill from "../assets/extracted/figma-006.png";
 import coastalStill from "../assets/extracted/figma-000.png";
 import concreteAtrium from "../assets/extracted/figma-012.png";
@@ -20,7 +20,7 @@ export const publicProjects: Project[] = [
     id: 1,
     title: "Concrete Passage",
     category: "Editorial Film",
-    image: archiveFrame,
+    image: portfolioFrame,
     orientation: "wide",
   },
   {

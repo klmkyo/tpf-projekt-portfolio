@@ -451,8 +451,8 @@ function AdminEditor({ initialContent, isConfigured, saveContent, logout }: Admi
             <div>
               <h2 className="text-2xl font-black">Projects</h2>
               <p className="mt-2 max-w-3xl text-sm leading-6 text-[#596171]">
-                Reorder the list, upload new images, and edit the card copy. The public work page
-                uses the same Firestore content.
+                Reorder the list, upload new images, and edit the card copy. The public portfolio
+                page uses the same Firestore content.
               </p>
             </div>
           </div>

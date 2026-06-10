@@ -1,4 +1,4 @@
-import archiveFrame from "../assets/extracted/figma-002.png";
+import portfolioFrame from "../assets/extracted/figma-002.png";
 import cameraStill from "../assets/extracted/figma-006.png";
 import coastalStill from "../assets/extracted/figma-000.png";
 import concreteAtrium from "../assets/extracted/figma-012.png";
@@ -8,7 +8,6 @@ import skylineStill from "../assets/extracted/figma-008.png";
 import studioFigure from "../assets/extracted/figma-014.png";
 
 export const imageAssets = {
-  archive: archiveFrame,
   atrium: concreteAtrium,
   camera: cameraStill,
   coast: coastalStill,
@@ -16,18 +15,19 @@ export const imageAssets = {
   lens: lensStudy,
   portrait: portraitLight,
   skyline: skylineStill,
+  portfolio: portfolioFrame,
 } as const;
 
 type ImageAssetKey = keyof typeof imageAssets;
 
 export const imageLabels: Record<ImageAssetKey, string> = {
-  archive: "Concrete archive",
   atrium: "Atrium morning",
   camera: "Camera study",
   coast: "Coastal opening",
   figure: "Suit study",
   lens: "Prime lens",
   portrait: "Hard light portrait",
+  portfolio: "Concrete portfolio",
   skyline: "Nocturne skyline",
 };
 

@@ -1,13 +1,18 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Button from "../components/Button";
 import LoadingState from "../components/LoadingState";
 import ProjectCard from "../components/ProjectCard";
 import ProjectLightbox from "../components/ProjectLightbox";
 import { useSiteContent } from "../contexts/site-content-store";
 
+function replaceArchiveWithPortfolio(label: string) {
+  return label.replace(/archive/gi, "Portfolio");
+}
+
 export default function WorkPage() {
   const { content, isContentReady } = useSiteContent();
   const [activeProjectIndex, setActiveProjectIndex] = useState<number | null>(null);
+  const portfolioSectionRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
@@ -43,7 +48,7 @@ export default function WorkPage() {
   }
 
   const siteContent = content;
-  const publicProjects = siteContent.projects.slice(0, 4);
+  const publicProjects = siteContent.projects;
   const heroBackground = siteContent.hero.backgroundImageUrl;
   const activeProject =
     activeProjectIndex === null ? null : publicProjects[activeProjectIndex] ?? null;
@@ -52,12 +57,12 @@ export default function WorkPage() {
     window.open(siteContent.navigation.viewReelUrl, "_blank", "noopener,noreferrer");
   }
 
-  function openArchive() {
-    setActiveProjectIndex(0);
+  function openPortfolio() {
+    portfolioSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   function showPreviousProject() {
-    if (activeProjectIndex === null) {
+    if (activeProjectIndex === null || publicProjects.length === 0) {
       return;
     }
 
@@ -67,7 +72,7 @@ export default function WorkPage() {
   }
 
   function showNextProject() {
-    if (activeProjectIndex === null) {
+    if (activeProjectIndex === null || publicProjects.length === 0) {
       return;
     }
 
@@ -95,25 +100,34 @@ export default function WorkPage() {
             <span className="mr-3 text-[#ff6066]">▶</span>
             {siteContent.hero.primaryCta}
           </Button>
-          <Button variant="outline" onClick={openArchive} type="button">
-            {siteContent.hero.secondaryCta}
+          <Button variant="outline" onClick={openPortfolio} type="button">
+            {replaceArchiveWithPortfolio(siteContent.hero.secondaryCta)}
           </Button>
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-[1280px] gap-8 px-5 pt-14 sm:px-12 sm:pt-20 lg:grid-cols-2 lg:px-24">
-        {publicProjects.map((project, index) => (
-          <div
-            key={project.id}
-            className={index === 0 ? "lg:col-span-2 lg:mx-auto lg:w-[72%]" : undefined}
-          >
-            <ProjectCard
-              project={project}
-              onClick={() => setActiveProjectIndex(index)}
-              isInteractive
-            />
+      <section
+        ref={portfolioSectionRef}
+        className="mx-auto grid max-w-[1280px] gap-8 px-5 pt-14 sm:px-12 sm:pt-20 lg:grid-cols-2 lg:px-24"
+      >
+        {publicProjects.length === 0 ? (
+          <div className="lg:col-span-2 rounded-[8px] border border-[#e5e0e6] bg-white px-6 py-8 text-sm text-[#596171]">
+            No portfolio projects have been added yet.
           </div>
-        ))}
+        ) : (
+          publicProjects.map((project, index) => (
+            <div
+              key={project.id}
+              className={index === 0 ? "lg:col-span-2 lg:mx-auto lg:w-[72%]" : undefined}
+            >
+              <ProjectCard
+                project={project}
+                onClick={() => setActiveProjectIndex(index)}
+                isInteractive
+              />
+            </div>
+          ))
+        )}
       </section>
 
       {activeProject && (

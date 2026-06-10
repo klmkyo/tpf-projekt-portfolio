@@ -14,10 +14,10 @@ export default function App() {
     <>
       <AnalyticsListener />
       <Routes>
-        <Route path="/" element={<Navigate to="/work" replace />} />
+        <Route path="/work" element={<Navigate to="/" replace />} />
         <Route path="/login" element={<LoginPage />} />
         <Route element={<SiteLayout />}>
-          <Route path="/work" element={<WorkPage />} />
+          <Route index element={<WorkPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route
             path="/admin"

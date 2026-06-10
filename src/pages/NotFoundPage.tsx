@@ -10,8 +10,8 @@ export default function NotFoundPage() {
         <p className="mx-auto mt-6 max-w-md text-lg leading-8 text-[#596171]">
           The requested route does not exist in this portfolio prototype.
         </p>
-        <Link to="/work" className="mt-10 inline-flex">
-          <Button>Back to Work</Button>
+        <Link to="/" className="mt-10 inline-flex">
+          <Button>Back to Portfolio</Button>
         </Link>
       </section>
     </main>

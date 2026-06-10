@@ -1,9 +1,11 @@
 import { NavLink } from "react-router-dom";
 import Button from "./Button";
 import { useSiteContent } from "../contexts/site-content-store";
+import { useAuth } from "../hooks/useAuth";
 
 export default function Header() {
   const { content, isContentReady } = useSiteContent();
+  const { currentUser, logout } = useAuth();
 
   if (!isContentReady) {
     return (
@@ -37,26 +39,23 @@ export default function Header() {
 
   const siteContent = content;
   const navItems = [
-    { label: siteContent.navigation.work, path: "/work" },
+    { label: siteContent.navigation.work, path: "/" },
     { label: siteContent.navigation.contact, path: "/contact" },
-    { label: siteContent.navigation.admin, path: "/admin" },
   ];
-
-  function handleViewReel() {
-    window.open(siteContent.navigation.viewReelUrl, "_blank", "noopener,noreferrer");
-  }
 
   return (
     <header className="border-b border-[#e6e1e5] bg-[#fbf7fa]">
-      <div className="mx-auto flex max-w-[1920px] items-center justify-between px-5 py-5 sm:px-8 lg:px-24">
-        <NavLink
-          to="/work"
-          className="text-xl font-black tracking-[-0.03em] text-[#111827] sm:text-2xl"
-        >
-          {siteContent.brandName}
-        </NavLink>
+      <div className="mx-auto grid max-w-[1920px] grid-cols-[1fr_auto_1fr] items-center px-5 py-5 sm:px-8 lg:px-24">
+        <div className="justify-self-start">
+          <NavLink
+            to="/"
+            className="text-xl font-black tracking-[-0.03em] text-[#111827] sm:text-2xl"
+          >
+            {siteContent.brandName}
+          </NavLink>
+        </div>
 
-        <nav className="hidden items-center gap-7 text-lg text-[#657086] md:flex lg:gap-9">
+        <nav className="hidden items-center gap-7 justify-self-center text-lg text-[#657086] md:flex lg:gap-9">
           {navItems.map((item) => (
             <NavLink
               key={item.path}
@@ -74,10 +73,12 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="hidden xl:block">
-          <Button className="rounded-xl px-7" onClick={handleViewReel} type="button">
-            {siteContent.navigation.viewReel}
-          </Button>
+        <div className="flex min-h-11 justify-self-end justify-end">
+          {currentUser && (
+            <Button className="hidden rounded-xl px-7 xl:inline-flex" onClick={() => void logout()} type="button">
+              Sign Out
+            </Button>
+          )}
         </div>
       </div>
 

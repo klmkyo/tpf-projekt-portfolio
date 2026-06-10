@@ -18,7 +18,8 @@ shared portfolio copy and projects without touching the code.
 
 ## Routes
 
-- `/work` - public portfolio/gallery page
+- `/` - public portfolio/gallery page
+- `/work` - legacy redirect to the portfolio page
 - `/contact` - contact form page
 - `/login` - Firebase email/password login page
 - `/admin` - protected portfolio manager page
@@ -88,7 +89,7 @@ For Railway:
 
 Add final screenshots here after configuring real Firebase and analytics accounts:
 
-- Application screenshots: `/work`, `/contact`, `/login`, `/admin`
+- Application screenshots: `/`, `/contact`, `/login`, `/admin`
 - Admin content editor screenshots: `/admin`, `/admin/new`
 - Google Analytics real-time or reports screenshot
 - Contentsquare dashboard screenshot
