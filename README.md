@@ -96,6 +96,18 @@ Add final screenshots here after configuring real Firebase and analytics account
 - Hotjar dashboard or heatmap/session screenshot, if Hotjar is also configured
 - Deployment URL screenshot
 
+## Analytics Integration
+
+The project is sucessfully integrated with the following analytics services:
+- Google Analytics
+
+![](./googleanalytics.png)
+
+- Hotjar
+
+![](./hotjar.png)
+
+
 ## Notes
 
 The live Figma MCP connection timed out during implementation, so the UI was implemented from the provided `figma-export.pdf` and its embedded raster assets. The extracted assets are stored in `src/assets/extracted`.
