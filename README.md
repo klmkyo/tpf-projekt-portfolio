@@ -4,6 +4,8 @@ React + TypeScript implementation of the Figma portfolio prototype for the TPF l
 The public site is backed by a Firebase Auth + Firestore content editor so the admin page can update
 shared portfolio copy and projects without touching the code.
 
+Live deployment URL: https://tpf-projekt-portfolio.polished-wave-a33b.workers.dev/
+
 ## Stack
 
 - Vite
