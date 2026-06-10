@@ -156,7 +156,7 @@ function SocialLinkField({
   );
 }
 
-function AdminEditor({ initialContent, isConfigured, saveContent, logout }: AdminEditorProps) {
+function AdminEditor({ initialContent, isConfigured, saveContent }: AdminEditorProps) {
   const [draft, setDraft] = useState<SiteContent>(() => initialContent);
   const [status, setStatus] = useState<string | null>(null);
   const [isSaving, setIsSaving] = useState(false);
@@ -228,9 +228,6 @@ function AdminEditor({ initialContent, isConfigured, saveContent, logout }: Admi
             <Link to="/admin/new">
               <Button className="rounded-none bg-black px-10">+ Add New Project</Button>
             </Link>
-            <Button variant="outline" onClick={logout}>
-              Sign Out
-            </Button>
           </div>
         </div>
       </section>
