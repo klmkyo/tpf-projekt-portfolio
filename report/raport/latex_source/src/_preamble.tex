@@ -1,0 +1,123 @@
+\documentclass[12pt, twoside]{report}
+% \usepackage[a4paper,inner=25mm,outer=25mm,top=35mm,bottom=20mm,showframe]{geometry}
+\usepackage[a4paper,inner=25mm,outer=25mm,top=35mm,bottom=20mm]{geometry}
+
+\usepackage{subfiles}
+\usepackage[polish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{fontspec}
+% \usepackage{newtxtext, newtxmath}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{ifdraft}
+\usepackage{float}
+\usepackage{varioref}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage{placeins}
+\usepackage{listings}
+\usepackage[bottom]{footmisc}
+\usepackage{cite}
+\usepackage{ragged2e}
+\usepackage[absolute]{textpos}
+\usepackage{array}
+
+\usepackage{longtable}
+
+
+\newlength{\HexCircleSize}
+\newlength{\HexCircleBorder}
+
+\newcommand{\hexcircle}[1]{%
+\begingroup
+\definecolor{circlecolor}{HTML}{#1}%
+\setlength{\HexCircleSize}{\dimexpr\ht\strutbox+\dp\strutbox\relax}%
+\setlength{\HexCircleBorder}{1pt}%
+\raisebox{-\dp\strutbox}{%
+\begin{tikzpicture}
+    \path[use as bounding box]
+    (0,0) rectangle (\HexCircleSize,\HexCircleSize);
+    
+    \filldraw[
+        fill=circlecolor,
+        draw=black,
+        line width=\HexCircleBorder
+        ]
+        (\dimexpr\HexCircleSize/2\relax,\dimexpr\HexCircleSize/2\relax)
+        circle[
+            radius=\dimexpr\HexCircleSize/2-\HexCircleBorder/2\relax
+            ];
+        \end{tikzpicture}%
+        }%
+        \endgroup
+        }
+        
+\renewcommand*{\arraystretch}{1.1}
+\setlength{\extrarowheight}{2pt}
+
+\newcommand*{\mline}[1]{%
+\begingroup
+    \renewcommand*{\arraystretch}{1.1}%
+   \begin{tabular}[c]{@{}>{\raggedright\arraybackslash}p{2cm}@{}}#1\end{tabular}%
+  \endgroup
+}
+
+
+\begin{document}
+\begin{titlepage}
+    \TPGrid[0mm,0mm]{5}{5}
+    % \TPShowGrid{5}{5}
+    % \TPoptions{absolute=true, showboxes=true}
+    \begin{center}
+        \begin{minipage}{2.5cm}
+            \begin{center}
+                \includegraphics[width=2.5cm]{../img/PK_SYGNET_CMYK.pdf}
+            \end{center}            
+        \end{minipage}
+        \hspace{-1cm}
+        \begin{minipage}{2.5cm}
+            \begin{center}
+                \includegraphics[width=2.5cm]{../img/WIiM_SYGNET_CMYK.pdf}
+            \end{center}
+        \end{minipage} \\[0.1cm]
+        \textsf{\fontsize{12}{10}\selectfont \texttt{Wydział Informatyki i Telekomunikacji \\Politechnika Krakowska}} \\[1.5cm]
+        \fontsize{26}{18}\selectfont \textbf{Konspekt projektu\\Portfolio fotografa} \\[0.78cm]
+
+        \textsf{\fontsize{18}{14}\selectfont \textbf{Autorzy / Role}}\\[0.1cm]
+        \bgroup
+        \def\arraystretch{1.5}
+        \begin{table}[h]
+        \centering
+        \begin{tabular}{|l|p{10cm}|}
+                                        \hline
+        Radosław Karpiński & Domena terminologii, badanie preferencji Zleceniodawcy \\    \hline
+        Marcin Klimek & Pomysłodawca, specyfikacja techniczna \\         \hline
+        Paweł Mączałowski & Architektura informacji, badanie preferencji Użytkowników \\     \hline
+        \end{tabular}
+        \end{table}
+        \egroup
+
+        \begin{textblock}{2}[0.3,0.5](3,4)
+            \raggedleft\vfill
+            \fontsize{13}{10}\selectfont 
+            Prowadzący:\\[0.1cm]
+            \textit{
+                \fontsize{13}{10}\selectfont 
+                dr hab. inż. arch. Paweł Ozimek
+            }
+        \end{textblock}
+
+    \end{center}
+\end{titlepage}
+% Koniec strony tytułowej ---------------------------
+
+% Spis treści ---------------------------------------
+
+\tableofcontents
+\newpage
+
+% Koniec spisu treści -------------------------------
