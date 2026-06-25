@@ -12,7 +12,7 @@ Witryna realizowana jest na życzenie Zleceniodawcy, wobec czego koniecznym sta�
 działania witryny, narzędzi jakie powinna oferować oraz preferencji dotyczących prezentacji witryny.
 
 W tym celu przygotowano kwestionariusz mający nakreślić wymagania funkcjonalne oraz niefunkcjonalne, na podstawie udzielonych odpowiedzi.
-Konieczne było dporecyzowanie oczekiwań dotyczących struktury strony, sposobu prezentacji portfolio, komunikacji z odbiorcą, identyfikacji wizualnej oraz wymagań związanych z dalszym zarządzaniem treścią. Na podstawie przeprowadzonej rozmowy możliwe było uszczegółowienie założeń projektowych oraz określenie zestawu funkcji, które powinny znaleźć się w finalnej wersji serwisu.
+Konieczne było doprecyzowanie oczekiwań dotyczących struktury strony, sposobu prezentacji portfolio, komunikacji z odbiorcą, identyfikacji wizualnej oraz wymagań związanych z dalszym zarządzaniem treścią. Na podstawie przeprowadzonej rozmowy możliwe było uszczegółowienie założeń projektowych oraz określenie zestawu funkcji, które powinny znaleźć się w finalnej wersji serwisu.
 
 \section{Pytania}
 \begin{enumerate}
@@ -84,6 +84,25 @@ Każdy z uczestników wybierał w skali od 1 do 5, gdzie 1 oznacza Nieważne/Nie
 \multicolumn{1}{|c|}{\textbf{13}} & \multicolumn{1}{|c|}{2} & \multicolumn{1}{|c|}{3} & \multicolumn{1}{|c|}{2} & \multicolumn{1}{|c|}{2} & \multicolumn{1}{|c|}{3} & \multicolumn{1}{|c|}{2.2} & Pobieranie nie jest priorytetem dla większości użytkowników. \\ \hline
 \multicolumn{1}{|c|}{\textbf{14}} & \multicolumn{1}{|c|}{3} & \multicolumn{1}{|c|}{3} & \multicolumn{1}{|c|}{2} & \multicolumn{1}{|c|}{3} & \multicolumn{1}{|c|}{4} & \multicolumn{1}{|c|}{3.0} & Dostępność ma znaczenie i warto zapewnić podstawowe wsparcie. \\ \hline
 \multicolumn{1}{|c|}{\textbf{15}} & \multicolumn{1}{|c|}{2} & \multicolumn{1}{|c|}{3} & \multicolumn{1}{|c|}{3} & \multicolumn{1}{|c|}{2} & \multicolumn{1}{|c|}{3} & \multicolumn{1}{|c|}{2.6} & Materiały BTS są ciekawe, lecz nie kluczowe. \\ \hline
+\end{longtable}
+\egroup
+
+\section{Synteza wyników badania}
+
+Wyniki badania użytkowników pokazują, że projekt portfolio powinien równoważyć atrakcyjną prezentację materiałów wizualnych z bardzo prostą ścieżką kontaktu. Najwyżej oceniono możliwość oglądania materiałów wideo bezpośrednio na stronie oraz responsywność, co potwierdza zasadność budowania serwisu wokół dużych, wyraźnych mediów i dopracowanych widoków mobilnych. Równie wysoko oceniono wydajność oraz szybki kontakt z twórcą, dlatego interfejs nie może opierać się wyłącznie na efektowności. Musi prowadzić użytkownika od pierwszego wrażenia do decyzji o kontakcie możliwie krótką drogą.
+
+Drugą grupę istotnych potrzeb stanowią elementy wspierające ocenę jakości pracy twórcy: spójny design, opisy projektów, kategoryzacja oraz case studies. Z tego powodu wdrożona witryna eksponuje portfolio w formie siatki, pozwala otwierać realizacje w trybie skupionym oraz zachowuje wyraźny podział między treściami promocyjnymi, projektowymi i kontaktowymi. Elementy mniej priorytetowe, takie jak pobieranie materiałów czy treści zza kulis, nie zostały potraktowane jako główna oś projektu, aby nie rozpraszać użytkownika w podstawowym procesie zapoznania się z ofertą.
+
+\bgroup
+\setlength{\tabcolsep}{4pt}
+\def\arraystretch{1.2}
+\begin{longtable}{| L{.28\textwidth} | L{.28\textwidth} | L{.34\textwidth} |}
+\hline
+\multicolumn{1}{|c|}{\textbf{Obszar potrzeby}} & \multicolumn{1}{|c|}{\textbf{Najważniejsze wyniki}} & \multicolumn{1}{|c|}{\textbf{Decyzja projektowa}} \\ \hline\hline
+Odbiór materiałów wizualnych & Wideo, estetyka i responsywność uzyskały jedne z najwyższych ocen. & Strona opiera się na dużych kadrach, pełnoekranowym odtwarzaniu i lightboxie dla zdjęć. \\ \hline
+Kontakt i pozyskiwanie klientów & Formularz, e-mail i szybka ścieżka kontaktu zostały ocenione jako kluczowe. & Kontakt jest dostępny jako osobny widok oraz jako naturalny koniec ścieżki po obejrzeniu portfolio. \\ \hline
+Orientacja w portfolio & Użytkownicy oczekują kategorii, opisów projektów i czytelnego układu realizacji. & Portfolio przedstawiono jako siatkę projektów z wyróżnionymi realizacjami oraz możliwością przejścia do szczegółów. \\ \hline
+Działanie na urządzeniach & Responsywność i wydajność są ważne mimo obecności wielu multimediów. & Przygotowano osobne ujęcia desktopowe i mobilne oraz ograniczono liczbę elementów rozpraszających. \\ \hline
 \end{longtable}
 \egroup
 
@@ -162,17 +181,33 @@ Panel administracyjny pozostaje oddzielony od części publicznej i wymaga logow
 Zgodnie z wypracowanymi wcześniej wymaganiami przygotowano minimalistyczny, graficzny interfejs oparty na dużej typografii, oszczędnej palecie kolorów oraz ekspozycji materiałów wizualnych. Poniżej przedstawiono główne założenia projektowe oraz zrzuty ekranowe z wdrożonej wersji serwisu.
 
 \subsection{Projekty okien}
-\begin{itemize}
-    \item Landing: duża sekcja hero z tłem graficznym, opisem marki, CTA do showreela i przejściem do portfolio.
-    \item Portfolio: responsywna siatka projektów z wyróżnioną pierwszą realizacją oraz kartami projektów.
-    \item Szczegóły projektu: lightbox pozwalający obejrzeć wybraną realizację bez opuszczania strony głównej.
-    \item Kontakt: formularz, adres e-mail, dane studia oraz odnośniki społecznościowe.
-    \item Panel CMS: ekran logowania i chroniony edytor treści portfolio dla administratora.
-\end{itemize}
+Projekt interfejsu został podporządkowany dwóm podstawowym celom: szybkiemu pokazaniu charakteru pracy twórcy oraz doprowadzeniu odbiorcy do kontaktu. Z tego względu ekran główny nie pełni wyłącznie roli informacyjnej. Łączy funkcję wizytówki, wejścia do portfolio oraz punktu startowego dla użytkownika, który chce obejrzeć showreel lub przejść bezpośrednio do realizacji.
+
+Portfolio działa jako główny obszar eksploracji. Układ projektów ma umożliwiać szybkie skanowanie realizacji, a jednocześnie pozwalać wyróżnić te materiały, które najlepiej reprezentują markę twórcy. Szczegóły projektu i widoki pełnoekranowe nie są osobnymi, ciężkimi podstronami, lecz trybami skupienia na materiale. Dzięki temu użytkownik nie traci kontekstu strony i może szybko wrócić do dalszego przeglądania.
+
+Widok kontaktu zamyka podstawową ścieżkę użytkownika. Po obejrzeniu portfolio odbiorca powinien mieć natychmiast dostęp do formularza, adresu e-mail i odnośników społecznościowych. Panel CMS pozostaje natomiast oddzielony od publicznej części serwisu, ponieważ służy innej grupie użytkowników i realizuje zadania administracyjne: aktualizację projektów, tekstów i materiałów graficznych.
+
+\bgroup
+\setlength{\tabcolsep}{4pt}
+\def\arraystretch{1.2}
+\begin{longtable}{| L{.22\textwidth} | L{.32\textwidth} | L{.36\textwidth} |}
+\hline
+\multicolumn{1}{|c|}{\textbf{Ekran}} & \multicolumn{1}{|c|}{\textbf{Rola w serwisie}} & \multicolumn{1}{|c|}{\textbf{Powiązanie z wymaganiami}} \\ \hline\hline
+Landing & Pierwsze wrażenie, prezentacja marki i wejście do głównych treści. & Realizuje wymaganie reprezentacyjnej strony głównej, dużej ekspozycji wizualnej i widocznego CTA. \\ \hline
+Portfolio & Przegląd realizacji fotograficznych i filmowych. & Odpowiada na potrzebę kategoryzacji, szybkiego skanowania treści i wyróżniania najważniejszych projektów. \\ \hline
+Lightbox projektu & Skupione oglądanie pojedynczej realizacji bez utraty kontekstu. & Realizuje wymaganie powiększania zdjęć i odtwarzania materiałów bez opuszczania witryny. \\ \hline
+Kontakt & Finalizacja ścieżki użytkownika i rozpoczęcie współpracy. & Wspiera najważniejsze wymaganie biznesowe: pozyskanie kontaktu od potencjalnego klienta. \\ \hline
+Panel CMS & Zarządzanie treściami po wdrożeniu. & Odpowiada na potrzebę samodzielnej aktualizacji portfolio przez zleceniodawcę. \\ \hline
+\end{longtable}
+\egroup
 
 \subsection{Projekty graficzne wdrożonej witryny}
 
-Zrzuty ekranowe pokazują finalny charakter graficzny strony: mocny nagłówek, jasne tło, kontrastowe CTA, galerię projektów oraz osobne widoki kontaktu i logowania.
+Zrzuty ekranowe pokazują finalny charakter graficzny strony: mocny nagłówek, jasne tło, kontrastowe CTA, galerię projektów oraz osobne widoki kontaktu i logowania. Każdy ekran został dobrany tak, aby dokumentował inną część ścieżki użytkownika lub inny typ wymagania projektowego. Dzięki temu prezentacja nie ogranicza się do wyglądu witryny, ale pokazuje również, w jaki sposób wdrożony interfejs odpowiada na wcześniejsze ustalenia badawcze.
+
+\subsubsection*{Strona główna}
+
+Strona główna pełni funkcję reprezentacyjną i sprzedażową. Duży kadr wizualny oraz krótki komunikat wprowadzają użytkownika w charakter pracy twórcy, natomiast przyciski akcji kierują do najważniejszych elementów serwisu. Ekran celowo nie jest przeładowany dodatkowymi informacjami, ponieważ pierwszym zadaniem użytkownika jest szybkie zrozumienie, czy styl twórcy odpowiada jego potrzebom.
 
 \begin{figure}[H]
     \centering
@@ -180,11 +215,19 @@ Zrzuty ekranowe pokazują finalny charakter graficzny strony: mocny nagłówek, 
     \caption{Strona główna - sekcja hero w widoku desktopowym.}
 \end{figure}
 
+\subsubsection*{Portfolio projektów}
+
+Siatka portfolio rozwija obietnicę z ekranu głównego. Układ pozwala zestawić wiele realizacji na jednej stronie, a jednocześnie zachować wystarczająco duże miniatury, aby zdjęcia i kadry filmowe były czytelne. Taki widok wspiera użytkowników, którzy chcą szybko porównać różne typy prac, oraz zleceniodawcę, który może eksponować najważniejsze projekty bez przebudowywania całej strony.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{../img/screenshots/portfolio-grid-desktop.png}
     \caption{Strona główna - fragment siatki portfolio z projektami.}
 \end{figure}
+
+\subsubsection*{Kontakt}
+
+Widok kontaktowy został potraktowany jako końcowy etap ścieżki konwersji. Formularz, dane kontaktowe i odnośniki społecznościowe są zebrane w jednym miejscu, aby użytkownik nie musiał szukać preferowanego sposobu kontaktu. Taki układ odpowiada wynikom badania preferencji, w których szybkie przejście do rozmowy z twórcą było jednym z najwyżej ocenionych wymagań.
 
 \begin{figure}[H]
     \centering
@@ -192,11 +235,19 @@ Zrzuty ekranowe pokazują finalny charakter graficzny strony: mocny nagłówek, 
     \caption{Podstrona kontaktowa z formularzem i danymi kontaktowymi.}
 \end{figure}
 
+\subsubsection*{Pełnoekranowy materiał wideo}
+
+Pełnoekranowy odtwarzacz filmu pokazuje, w jaki sposób serwis realizuje wymaganie oglądania materiałów wideo bez opuszczania witryny. Użytkownik może skupić się na materiale, a interfejs wokół filmu zostaje ograniczony do minimum. Jest to szczególnie ważne w portfolio filmowym, gdzie jakość odbioru materiału ma bezpośredni wpływ na ocenę kompetencji twórcy.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{../img/screenshots/reel-fullscreen-desktop.png}
     \caption{Widok pełnoekranowego odtwarzacza filmu.}
 \end{figure}
+
+\subsubsection*{Pełnoekranowe zdjęcie}
+
+Lightbox zdjęcia spełnia analogiczną rolę dla fotografii. Pozwala obejrzeć pojedynczy kadr w większym formacie i ogranicza elementy rozpraszające uwagę. Dzięki temu galeria zachowuje szybkość przeglądania, ale nie traci możliwości szczegółowej prezentacji wybranych materiałów.
 
 \begin{figure}[H]
     \centering
@@ -204,17 +255,27 @@ Zrzuty ekranowe pokazują finalny charakter graficzny strony: mocny nagłówek, 
     \caption{Widok pełnoekranowego lightboxu zdjęcia.}
 \end{figure}
 
+\subsubsection*{Panel administracyjny}
+
+Ekran logowania dokumentuje oddzielenie części publicznej od zaplecza administracyjnego. Dostęp do panelu CMS jest przeznaczony dla administratora portfolio, a nie dla zwykłego odwiedzającego. Takie rozdzielenie upraszcza publiczny interfejs i jednocześnie umożliwia zleceniodawcy samodzielne utrzymywanie aktualnych treści po wdrożeniu.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{../img/screenshots/login-desktop.png}
     \caption{Widok logowania do panelu CMS.}
 \end{figure}
 
+\subsubsection*{Widok mobilny}
+
+Widok mobilny potwierdza, że układ strony nie jest jedynie pomniejszoną wersją desktopu. Elementy hero, tekst i akcje są ułożone w pojedynczej kolumnie, dzięki czemu najważniejsze treści pozostają czytelne na węższym ekranie. Jest to bezpośrednia odpowiedź na wysoką wagę responsywności w badaniu użytkowników.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.55\textwidth]{../img/screenshots/home-hero-mobile-portrait.png}
     \caption{Responsywny widok mobilny strony głównej.}
 \end{figure}
+
+\clearpage
 
 \subsection{Kolory i typografia}
 \begin{itemize}
