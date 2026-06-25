@@ -1,3 +1,37 @@
+\chapter{Wprowadzenie}
+
+Projekt dotyczy przygotowania i wdrożenia witryny portfolio dla fotografa oraz filmowca. Głównym zadaniem serwisu jest prezentacja wybranych realizacji w sposób atrakcyjny wizualnie, a jednocześnie uporządkowany i zrozumiały dla potencjalnego klienta. Strona nie pełni więc wyłącznie funkcji galerii. Ma wspierać ocenę stylu pracy twórcy, prowadzić użytkownika przez najważniejsze materiały oraz ułatwiać rozpoczęcie kontaktu.
+
+W odróżnieniu od klasycznego projektu makietowego, przedmiotem opracowania jest niemal kompletna aplikacja. Z tego względu raport łączy elementy analizy wymagań, architektury informacji, dokumentacji funkcjonalnej oraz prezentacji wdrożonego interfejsu. Zrzuty ekranowe nie są traktowane jako osobne ilustracje, lecz jako potwierdzenie decyzji projektowych wynikających z badań i rozmowy ze zleceniodawcą.
+
+\section{Cel projektu}
+
+Podstawowym celem projektu było stworzenie nowoczesnej, responsywnej witryny portfolio, która pozwala odbiorcy szybko zrozumieć charakter twórczości autora i przejść do kontaktu. Wymagało to połączenia ekspozycji materiałów wizualnych z prostą strukturą informacji. Serwis musiał jednocześnie spełniać wymagania zleceniodawcy dotyczące samodzielnego zarządzania treścią oraz oczekiwania użytkowników związane z wygodnym przeglądaniem zdjęć i materiałów wideo.
+
+\section{Zakres opracowania}
+
+Zakres projektu obejmuje analizę domeny terminologicznej, zebranie preferencji zleceniodawcy, badanie oczekiwań użytkowników, sformułowanie wymagań projektowych oraz dokumentację wdrożonej wersji witryny. W raporcie przedstawiono także architekturę informacji, diagram funkcjonalności, najważniejsze ekrany interfejsu oraz stos technologiczny wykorzystany przy implementacji.
+
+\bgroup
+\setlength{\tabcolsep}{4pt}
+\def\arraystretch{1.2}
+\begin{longtable}{| L{.28\textwidth} | L{.62\textwidth} |}
+\hline
+\multicolumn{1}{|c|}{\textbf{Obszar projektu}} & \multicolumn{1}{|c|}{\textbf{Znaczenie w opracowaniu}} \\ \hline\hline
+Analiza domeny & Uporządkowanie pojęć związanych z fotografią, filmem, portfolio i publikacją materiałów. \\ \hline
+Badanie preferencji & Określenie oczekiwań zleceniodawcy oraz priorytetów potencjalnych użytkowników. \\ \hline
+Projekt funkcjonalny & Przełożenie wymagań na strukturę serwisu, przepływy użytkownika i funkcje panelu CMS. \\ \hline
+Warstwa wizualna & Udokumentowanie wyglądu wdrożonej aplikacji przy pomocy zrzutów ekranowych i opisów roli ekranów. \\ \hline
+Implementacja & Wskazanie zastosowanego stosu technologicznego oraz sposobu utrzymania treści po wdrożeniu. \\ \hline
+\end{longtable}
+\egroup
+
+\section{Główne grupy użytkowników}
+
+W projekcie wyróżniono dwie podstawowe grupy użytkowników. Pierwszą stanowią odwiedzający stronę, czyli potencjalni klienci, odbiorcy portfolio lub osoby oceniające dotychczasowe realizacje twórcy. Druga grupa to administrator portfolio, który po zalogowaniu zarządza treściami i aktualizuje projekty prezentowane w części publicznej.
+
+Taki podział jest istotny, ponieważ obie grupy mają odmienne potrzeby. Odwiedzający oczekuje prostego, atrakcyjnego i szybkiego doświadczenia. Administrator potrzebuje natomiast narzędzia do utrzymywania aktualności strony bez ingerencji w kod aplikacji. Z tego powodu część publiczna i panel CMS zostały rozdzielone zarówno funkcjonalnie, jak i komunikacyjnie.
+
 \chapter{Domena terminologii}
 \indent W ramach przygotowania projektu związanego z portfolio fotografa/filmowca, konieczne jest zapoznanie się z terminologią charakterystyczną dla tej domeny zainteresowania.
 Wynikiem ekstensywnego badania domeny terminologii jest przedstawiony poniżej diagram. Zawiera on przykłady specjalistycznych terminów powiązanych z konkretnymi dziedzinami pracy
@@ -148,6 +182,24 @@ Na podstawie uzyskanych odpowiedzi określono następujący zestaw funkcji oraz 
 \end{longtable}
 \egroup
 
+\section{Priorytety projektowe}
+
+Zebrane wymagania nie mają jednakowej wagi. Część z nich jest kluczowa dla realizacji celu biznesowego, część wpływa przede wszystkim na jakość odbioru, a część może zostać rozwijana w kolejnych etapach. Priorytetyzacja pozwoliła ograniczyć ryzyko stworzenia efektownego, ale mało użytecznego portfolio. Najważniejsze stały się te funkcje, które bezpośrednio wspierają prezentację prac oraz kontakt z potencjalnym klientem.
+
+\bgroup
+\setlength{\tabcolsep}{4pt}
+\def\arraystretch{1.2}
+\begin{longtable}{| L{.22\textwidth} | L{.30\textwidth} | L{.38\textwidth} |}
+\hline
+\multicolumn{1}{|c|}{\textbf{Priorytet}} & \multicolumn{1}{|c|}{\textbf{Obszar}} & \multicolumn{1}{|c|}{\textbf{Uzasadnienie}} \\ \hline\hline
+Wysoki & Prezentacja portfolio, showreel, lightbox, kontakt & Są to elementy bezpośrednio związane z oceną twórcy i rozpoczęciem współpracy. \\ \hline
+Wysoki & Responsywność i wydajność & Użytkownicy wskazali je jako krytyczne, a serwis zawiera dużo materiałów wizualnych. \\ \hline
+Średni & Wielojęzyczność, SEO, analityka & Wpływają na rozwój i widoczność strony, ale nie zastępują podstawowej ścieżki portfolio. \\ \hline
+Średni & Panel CMS & Jest ważny dla utrzymania treści po wdrożeniu, lecz pozostaje poza doświadczeniem zwykłego odwiedzającego. \\ \hline
+Niższy & Pobieranie materiałów, treści zza kulis & Badanie użytkowników pokazało, że są to funkcje dodatkowe, a nie podstawowe. \\ \hline
+\end{longtable}
+\egroup
+
 \chapter{Architektura informacji}
 
 Kluczowym z punktu widzenia tworzenia strony jest zadbanie o klarowne przekazanie informacji korzystającemu z witryny użytkownikowi.
@@ -175,6 +227,24 @@ Diagram funkcjonalności przedstawia główne interakcje użytkowników z wdroż
 Z perspektywy odbiorcy najważniejszą ścieżką jest przejście od strony głównej przez portfolio do szczegółów projektu lub kontaktu. Użytkownik może obejrzeć showreel, zapoznać się z projektami w układzie galerii, otworzyć wybraną realizację w lightboxie oraz skorzystać z formularza lub odnośników społecznościowych.
 
 Panel administracyjny pozostaje oddzielony od części publicznej i wymaga logowania. Administrator po uwierzytelnieniu może edytować treści strony, zmieniać projekty, przesyłać grafiki oraz zapisywać zmiany w Firebase. Zaktualizowane dane zasilają część publiczną serwisu, dzięki czemu portfolio może być rozwijane bez ingerencji w kod aplikacji.
+
+\section{Pokrycie wymagań przez wdrożenie}
+
+Wdrożona wersja serwisu realizuje najważniejsze wymagania zidentyfikowane podczas rozmowy ze zleceniodawcą oraz badania użytkowników. Szczególnie istotne było zachowanie spójności między wymaganiami a rzeczywistymi ekranami aplikacji. Dlatego w tabeli przedstawiono, które obszary wdrożenia odpowiadają na najważniejsze potrzeby projektowe.
+
+\bgroup
+\setlength{\tabcolsep}{4pt}
+\def\arraystretch{1.2}
+\begin{longtable}{| L{.34\textwidth} | L{.56\textwidth} |}
+\hline
+\multicolumn{1}{|c|}{\textbf{Wymaganie}} & \multicolumn{1}{|c|}{\textbf{Realizacja i efekt dla użytkownika}} \\ \hline\hline
+Szybka ocena stylu twórcy & Strona główna z mocną sekcją hero pozwala od razu zobaczyć charakter portfolio i przejść do dalszych treści. \\ \hline
+Wygodne przeglądanie realizacji & Siatka portfolio oraz wyróżnione projekty umożliwiają porównanie materiałów bez przechodzenia przez wiele podstron. \\ \hline
+Oglądanie materiałów w trybie skupionym & Pełnoekranowy odtwarzacz i lightbox zdjęć pozwalają oceniać zdjęcia oraz filmy bez rozpraszających elementów interfejsu. \\ \hline
+Łatwy kontakt & Dedykowany widok kontaktowy z formularzem i danymi tworzy jasną ścieżkę przejścia od zainteresowania portfolio do kontaktu. \\ \hline
+Samodzielna aktualizacja treści & Panel CMS z logowaniem i zapisem danych pozwala administratorowi utrzymywać portfolio bez zmian w kodzie aplikacji. \\ \hline
+\end{longtable}
+\egroup
 
 \chapter{Specyfikacja techniczna}
 \section{Design}
@@ -305,3 +375,33 @@ Do realizacji wdrożonej wersji witryny zastosowano następujący stos technolog
     \item Hosting: Cloudflare Workers
     \item Narzędzia budowania i wdrażania: pnpm oraz Wrangler
 \end{itemize}
+
+\section{Uzasadnienie doboru technologii}
+
+Zastosowany stos technologiczny został dobrany pod kątem szybkości wdrożenia, responsywności interfejsu oraz możliwości późniejszego rozwijania panelu administracyjnego. React i TypeScript pozwalają utrzymywać aplikację jako zestaw komponentów, co jest wygodne przy stronie składającej się z powtarzalnych bloków: kart projektów, widoków galerii, formularzy i ekranów administracyjnych. Tailwind CSS ułatwia zachowanie spójności wizualnej oraz szybkie dopasowywanie układu do różnych szerokości ekranu.
+
+Firebase pełni rolę zaplecza dla uwierzytelniania, danych i plików, dzięki czemu panel CMS może obsługiwać aktualizację treści bez budowania osobnego serwera aplikacyjnego. Cloudflare Workers zapewnia natomiast prosty sposób publikacji statycznej części serwisu i dobrą dostępność wdrożenia. Analityka została uwzględniona jako warstwa pomocnicza, pozwalająca w przyszłości ocenić, które części portfolio są najczęściej oglądane i gdzie użytkownicy przechodzą do kontaktu.
+
+\chapter{Podsumowanie}
+
+Przygotowana witryna odpowiada na najważniejsze potrzeby zleceniodawcy: prezentuje twórczość w formie nowoczesnego portfolio, umożliwia wygodne oglądanie zdjęć i materiałów wideo oraz prowadzi użytkownika do kontaktu. Projekt nie ogranicza się do warstwy graficznej, ponieważ uwzględnia również zarządzanie treścią przez panel CMS, responsywność, integracje z usługami zewnętrznymi i podstawy analityki.
+
+Najważniejszym rezultatem prac jest spójne połączenie analizy wymagań z wdrożonym interfejsem. Badanie preferencji użytkowników wskazało, że portfolio powinno być szybkie, czytelne i nastawione na wygodny odbiór materiałów wizualnych. Zrzuty ekranowe oraz diagramy przedstawione w raporcie pokazują, w jaki sposób te wymagania zostały przełożone na realne widoki aplikacji.
+
+\section{Ograniczenia i dalszy rozwój}
+
+Obecna wersja serwisu stanowi solidną podstawę wdrożeniową, ale może być rozwijana w kolejnych etapach. Najbardziej naturalnym kierunkiem rozwoju jest rozbudowanie opisów projektów do formy krótkich case studies, dodanie pełniejszej obsługi wielojęzyczności oraz dalsza optymalizacja materiałów multimedialnych. W przyszłości warto również wykorzystać dane analityczne do sprawdzenia, które projekty najczęściej prowadzą użytkowników do kontaktu.
+
+\bgroup
+\setlength{\tabcolsep}{4pt}
+\def\arraystretch{1.2}
+\begin{longtable}{| L{.30\textwidth} | L{.60\textwidth} |}
+\hline
+\multicolumn{1}{|c|}{\textbf{Kierunek rozwoju}} & \multicolumn{1}{|c|}{\textbf{Uzasadnienie}} \\ \hline\hline
+Case studies projektów & Rozbudowane opisy realizacji mogą zwiększyć zaufanie klientów i lepiej pokazać proces pracy twórcy. \\ \hline
+Pełna wielojęzyczność & Wersja angielska ułatwi dotarcie do odbiorców zagranicznych i klientów spoza Polski. \\ \hline
+Rozbudowana analityka & Dane o kliknięciach i oglądalności pomogą ocenić skuteczność układu portfolio. \\ \hline
+Optymalizacja mediów & Dalsza kompresja i formaty nowej generacji mogą poprawić szybkość ładowania strony. \\ \hline
+Rozszerzenie panelu CMS & Dodatkowe ustawienia pozwolą zleceniodawcy samodzielnie zarządzać większą częścią treści. \\ \hline
+\end{longtable}
+\egroup
