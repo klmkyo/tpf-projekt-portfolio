@@ -1,0 +1,94 @@
+\begin{tikzpicture}[
+    x=1cm,
+    y=1cm,
+    >=Latex,
+    font=\fontsize{8.6}{10.2}\selectfont,
+    actor/.style args={#1}{
+        draw=#1,
+        line width=0.85pt,
+        fill=#1!6,
+        text=black,
+        text width=2.8cm,
+        minimum height=1.7cm,
+        align=center,
+        inner sep=5pt
+    },
+    systembox/.style={
+        draw=black!22,
+        line width=0.8pt,
+        fill=white,
+        text=black,
+        text width=2.95cm,
+        minimum height=1.28cm,
+        align=center,
+        inner sep=4pt
+    },
+    mainflow/.style={draw=black!65, line width=0.75pt, -{Latex[length=2.6mm,width=1.9mm]}},
+    extflow/.style={draw=blue!85, line width=0.75pt, dashed, -{Latex[length=2.6mm,width=1.9mm]}}
+]
+    % Parent frames
+    \draw[line width=0.85pt, draw=red!78!black, fill=red!78!black!3]
+        (-3.1,-0.7) rectangle (6.55,-7.55);
+    \draw[line width=0.85pt, draw=orange!85!black, fill=orange!85!black!3]
+        (-3.1,-8.45) rectangle (6.55,-15.55);
+
+    % Titles
+    \node[text=red!78!black, font=\bfseries\fontsize{10.8}{12.4}\selectfont]
+        at (1.72,-1.18) {Publiczna część serwisu};
+    \node[text=orange!85!black, font=\bfseries\fontsize{10.8}{12.4}\selectfont]
+        at (1.72,-8.95) {Panel administracyjny CMS};
+
+    % Left actors
+    \node[actor=red!78!black] (visitor) at (-5.45,-2.25)
+        {{\bfseries Odwiedzający}\\{\bfseries potencjalny klient}\\[3pt]część publiczna};
+    \node[actor=blue!80!black] (analytics) at (-5.45,-4.95)
+        {{\bfseries Analityka}\\[3pt]GA4, Hotjar,\\Contentsquare};
+    \node[actor=orange!85!black] (admin) at (-5.45,-10.15)
+        {{\bfseries Administrator}\\{\bfseries portfolio}\\[3pt]panel CMS};
+    \node[actor=blue!80!black] (firebase) at (-5.45,-12.85)
+        {{\bfseries Firebase}\\[3pt]Auth, Firestore,\\Storage};
+
+    % Public section
+    \node[systembox] (home) at (-0.45,-2.4)
+        {{\bfseries Wejście na stronę}\\{\bfseries główną}};
+    \node[systembox] (browse) at (3.85,-2.4)
+        {{\bfseries Przegląd portfolio}\\{\bfseries i listy projektów}};
+    \node[systembox] (lightbox) at (-0.45,-4.5)
+        {{\bfseries Otwarcie projektu}\\{\bfseries w lightboxie}};
+    \node[systembox] (reel) at (3.85,-4.5)
+        {{\bfseries Odtworzenie}\\{\bfseries showreela}};
+    \node[systembox] (form) at (-0.45,-6.6)
+        {{\bfseries Wysłanie formularza}\\{\bfseries kontaktowego}};
+    \node[systembox] (contact) at (3.85,-6.6)
+        {{\bfseries Przejście do e-maila}\\{\bfseries lub social mediów}};
+
+    \draw[mainflow] (visitor.east) -- (home.west |- visitor.east);
+    \draw[mainflow] (home.east) -- (browse.west);
+    \draw[mainflow] (home.south) -- (lightbox.north);
+    \draw[mainflow] (browse.south) -- (reel.north);
+    \draw[mainflow] (lightbox.south) -- (form.north);
+    \draw[mainflow] (form.east) -- (contact.west);
+    \draw[extflow] (-2.95,-4.95) -- (analytics.east);
+
+    % CMS section
+    \node[systembox] (login) at (-0.45,-10.35)
+        {{\bfseries Logowanie}\\{\bfseries do panelu}};
+    \node[systembox] (edit) at (3.85,-10.35)
+        {{\bfseries Edycja tekstów}\\{\bfseries i danych kontaktowych}};
+    \node[systembox] (manage) at (-0.45,-12.45)
+        {{\bfseries Zarządzanie}\\{\bfseries projektami}};
+    \node[systembox] (upload) at (3.85,-12.45)
+        {{\bfseries Wgrywanie zdjęć}\\{\bfseries do Firebase Storage}};
+    \node[systembox] (save) at (-0.45,-14.55)
+        {{\bfseries Zapis danych}\\{\bfseries w Firestore}};
+    \node[systembox] (publish) at (3.85,-14.55)
+        {{\bfseries Publikacja zmian}\\{\bfseries na stronie}};
+
+    \draw[mainflow] (admin.east) -- (login.west |- admin.east);
+    \draw[mainflow] (login.east) -- (edit.west);
+    \draw[mainflow] (login.south) -- (manage.north);
+    \draw[mainflow] (edit.south) -- (upload.north);
+    \draw[mainflow] (manage.south) -- (save.north);
+    \draw[mainflow] (save.east) -- (publish.west);
+    \draw[extflow] (-2.95,-12.85) -- (firebase.east);
+\end{tikzpicture}

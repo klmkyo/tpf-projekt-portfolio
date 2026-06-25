@@ -1,0 +1,69 @@
+\begin{tikzpicture}[
+    x=1cm,
+    y=1cm,
+    >=Latex,
+    font=\small,
+    sectionbox/.style={
+        draw=black!18,
+        line width=0.45pt,
+        fill=white,
+        minimum width=15.45cm,
+        anchor=north west
+    },
+    sectiontitle/.style={
+        anchor=west,
+        font=\bfseries\fontsize{11}{13}\selectfont,
+        text=black!90
+    },
+    card/.style={
+        draw=black!55,
+        line width=0.85pt,
+        fill=white,
+        text width=2.35cm,
+        minimum height=1.42cm,
+        align=center,
+        inner sep=5pt
+    },
+    publicfocus/.style={draw=red!75!black},
+    cmsfocus/.style={draw=blue!80!black},
+    flow/.style={draw=black!70, line width=0.8pt, -{Latex[length=2.8mm,width=2mm]}},
+    publish/.style={draw=blue!80, line width=0.9pt, dashed, -{Latex[length=2.8mm,width=2mm]}}
+]
+    \node[sectionbox, minimum height=4.15cm] (public) at (0,0) {};
+    \node[sectiontitle] at ($(public.north west)+(0.4,-0.45)$) {Część publiczna strony};
+
+    \node[card, publicfocus] (home) at ($(public.north west)+(1.95,-1.72)$) {{\bfseries\fontsize{9.7}{11.5}\selectfont Strona główna}\\[2pt]{\fontsize{8.2}{9.8}\selectfont hero + CTA}};
+    \node[card] (portfolio) at ($(home.center)+(3.75,0)$) {{\bfseries\fontsize{9.7}{11.5}\selectfont Portfolio}\\[2pt]{\fontsize{8.2}{9.8}\selectfont siatka projektów}};
+    \node[card] (details) at ($(portfolio.center)+(3.75,0)$) {{\bfseries\fontsize{9.7}{11.5}\selectfont Szczegóły\\projektu}\\[2pt]{\fontsize{8.2}{9.8}\selectfont lightbox}};
+    \node[card] (contact) at ($(details.center)+(3.75,0)$) {{\bfseries\fontsize{9.7}{11.5}\selectfont Kontakt}\\[2pt]{\fontsize{8.2}{9.8}\selectfont formularz + dane}};
+    \node[card] (reel) at ($(home.center)+(0,-1.8)$) {{\bfseries\fontsize{9.7}{11.5}\selectfont Showreel}\\[2pt]{\fontsize{8.2}{9.8}\selectfont materiał wideo}};
+    \node[card] (social) at ($(contact.center)+(0,-1.8)$) {{\bfseries\fontsize{9.7}{11.5}\selectfont Social media}\\[2pt]{\fontsize{8.2}{9.8}\selectfont odnośniki}};
+
+    \draw[flow] (home.east) -- (portfolio.west);
+    \draw[flow] (portfolio.east) -- (details.west);
+    \draw[flow] (details.east) -- (contact.west);
+    \draw[flow] (home.south) -- (reel.north);
+    \draw[flow] (contact.south) -- (social.north);
+
+    \node[sectionbox, minimum height=3.7cm] (cms) at (0,-4.9) {};
+    \node[sectiontitle] at ($(cms.north west)+(0.4,-0.45)$) {Panel administracyjny i publikacja treści};
+
+    \node[card, cmsfocus] (login) at ($(cms.north west)+(1.95,-1.85)$) {{\bfseries\fontsize{9.7}{11.5}\selectfont Logowanie}\\[2pt]{\fontsize{8.2}{9.8}\selectfont administratora}};
+    \node[card, cmsfocus] (panel) at ($(login.center)+(3.75,0)$) {{\bfseries\fontsize{9.7}{11.5}\selectfont Panel CMS}\\[2pt]{\fontsize{8.2}{9.8}\selectfont edycja treści}};
+    \node[card, cmsfocus] (firebase) at ($(panel.center)+(3.75,0)$) {{\bfseries\fontsize{9.7}{11.5}\selectfont Firebase}\\[2pt]{\fontsize{8.2}{9.8}\selectfont Auth, Firestore,\\Storage}};
+    \node[card, cmsfocus, fill=blue!4, text width=2.55cm] (published) at ($(firebase.center)+(3.75,0)$) {{\bfseries\fontsize{9.5}{11.3}\selectfont Opublikowana}\\[2pt]{\fontsize{8.0}{9.6}\selectfont zawartość\\strony}};
+
+    \draw[flow] (login.east) -- (panel.west);
+    \draw[flow] (panel.east) -- (firebase.west);
+    \draw[flow] (firebase.east) -- (published.west);
+
+    \draw[publish] (published.north) -- (social.south);
+
+    \node[
+        fill=white,
+        inner sep=1.6pt,
+        font=\bfseries\fontsize{8.5}{10}\selectfont,
+        text=black!75,
+        anchor=west
+    ] at ($(published.north)!0.5!(social.south)+(0.25,0)$) {publikacja treści};
+\end{tikzpicture}

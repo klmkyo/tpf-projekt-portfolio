@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="2900" viewBox="0 0 1200 1450">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4b5563"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/>
+    </marker>
+    <style>
+      .section-title-red { font: 700 30px Arial, Helvetica, sans-serif; fill: #b91c1c; }
+      .section-title-orange { font: 700 30px Arial, Helvetica, sans-serif; fill: #b45309; }
+      .actor-title { font: 700 26px Arial, Helvetica, sans-serif; fill: #111827; }
+      .actor-note { font: 400 22px Arial, Helvetica, sans-serif; fill: #374151; }
+      .func-text { font: 400 23px Arial, Helvetica, sans-serif; fill: #1f2937; }
+      .service-title { font: 700 25px Arial, Helvetica, sans-serif; fill: #111827; }
+      .service-text { font: 400 22px Arial, Helvetica, sans-serif; fill: #1f2937; }
+      .caption { font: 400 20px Arial, Helvetica, sans-serif; fill: #4b5563; }
+      .actor-red { fill: #fff1f2; stroke: #ef4444; }
+      .actor-orange { fill: #fff7ed; stroke: #f97316; }
+      .section-red { fill: #fffafa; stroke: #ef4444; }
+      .section-orange { fill: #fffaf4; stroke: #f97316; }
+      .function { fill: #ffffff; stroke: #cbd5e1; }
+      .service { fill: #eef2ff; stroke: #2563eb; }
+      .arrow { stroke: #4b5563; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .support { stroke: #2563eb; stroke-width: 3; fill: none; stroke-dasharray: 12 10; marker-end: url(#arrow-blue); }
+    </style>
+  </defs>
+
+  <rect width="1200" height="1450" fill="#ffffff"/>
+
+  <rect class="actor-red" x="70" y="145" width="240" height="130" stroke-width="3"/>
+  <text class="actor-title" text-anchor="middle" x="190" y="193">Odwiedzający</text>
+  <text class="actor-title" text-anchor="middle" x="190" y="226">potencjalny klient</text>
+  <text class="actor-note" text-anchor="middle" x="190" y="256">część publiczna</text>
+
+  <rect class="section-red" x="380" y="115" width="720" height="420" stroke-width="3"/>
+  <text class="section-title-red" text-anchor="middle" x="740" y="165">Publiczna część serwisu</text>
+
+  <rect class="function" x="420" y="205" width="300" height="82" stroke-width="2"/>
+  <text class="func-text" text-anchor="middle" x="570" y="238">Wejście na stronę</text>
+  <text class="func-text" text-anchor="middle" x="570" y="266">główną</text>
+
+  <rect class="function" x="760" y="205" width="300" height="82" stroke-width="2"/>
+  <text class="func-text" text-anchor="middle" x="910" y="238">Przegląd portfolio</text>
+  <text class="func-text" text-anchor="middle" x="910" y="266">i listy projektów</text>
+
+  <rect class="function" x="420" y="315" width="300" height="82" stroke-width="2"/>
+  <text class="func-text" text-anchor="middle" x="570" y="348">Otwarcie projektu</text>
+  <text class="func-text" text-anchor="middle" x="570" y="376">w lightboxie</text>
+
+  <rect class="function" x="760" y="315" width="300" height="82" stroke-width="2"/>
+  <text class="func-text" text-anchor="middle" x="910" y="348">Odtworzenie</text>
+  <text class="func-text" text-anchor="middle" x="910" y="376">showreela</text>
+
+  <rect class="function" x="420" y="425" width="300" height="82" stroke-width="2"/>
+  <text class="func-text" text-anchor="middle" x="570" y="458">Wysłanie formularza</text>
+  <text class="func-text" text-anchor="middle" x="570" y="486">kontaktowego</text>
+
+  <rect class="function" x="760" y="425" width="300" height="82" stroke-width="2"/>
+  <text class="func-text" text-anchor="middle" x="910" y="458">Przejście do e-maila</text>
+  <text class="func-text" text-anchor="middle" x="910" y="486">lub social mediów</text>
+
+  <path class="arrow" d="M310 210 H368"/>
+  <path class="arrow" d="M720 246 H748"/>
+  <path class="arrow" d="M910 287 V303"/>
+  <path class="arrow" d="M720 356 H748"/>
+  <path class="arrow" d="M570 397 V413"/>
+  <path class="arrow" d="M720 466 H748"/>
+
+  <rect class="service" x="70" y="365" width="240" height="135" stroke-width="3"/>
+  <text class="service-title" text-anchor="middle" x="190" y="412">Analityka</text>
+  <text class="service-text" text-anchor="middle" x="190" y="446">GA4, Hotjar,</text>
+  <text class="service-text" text-anchor="middle" x="190" y="474">Contentsquare</text>
+  <path class="support" d="M380 432 H322"/>
+
+  <text class="caption" text-anchor="middle" x="600" y="585">Funkcje widoczne dla użytkownika służą prezentacji portfolio i pozyskaniu kontaktu.</text>
+
+  <line x1="90" y1="650" x2="1110" y2="650" stroke="#e5e7eb" stroke-width="3"/>
+
+  <rect class="actor-orange" x="70" y="745" width="240" height="130" stroke-width="3"/>
+  <text class="actor-title" text-anchor="middle" x="190" y="793">Administrator</text>
+  <text class="actor-title" text-anchor="middle" x="190" y="826">portfolio</text>
+  <text class="actor-note" text-anchor="middle" x="190" y="856">panel CMS</text>
+
+  <rect class="section-orange" x="380" y="715" width="720" height="470" stroke-width="3"/>
+  <text class="section-title-orange" text-anchor="middle" x="740" y="765">Panel administracyjny CMS</text>
+
+  <rect class="function" x="420" y="805" width="300" height="82" stroke-width="2"/>
+  <text class="func-text" text-anchor="middle" x="570" y="838">Logowanie</text>
+  <text class="func-text" text-anchor="middle" x="570" y="866">do panelu</text>
+
+  <rect class="function" x="760" y="805" width="300" height="82" stroke-width="2"/>
+  <text class="func-text" text-anchor="middle" x="910" y="838">Edycja tekstów</text>
+  <text class="func-text" text-anchor="middle" x="910" y="866">i danych kontaktowych</text>
+
+  <rect class="function" x="420" y="915" width="300" height="82" stroke-width="2"/>
+  <text class="func-text" text-anchor="middle" x="570" y="948">Zarządzanie</text>
+  <text class="func-text" text-anchor="middle" x="570" y="976">projektami</text>
+
+  <rect class="function" x="760" y="915" width="300" height="82" stroke-width="2"/>
+  <text class="func-text" text-anchor="middle" x="910" y="948">Wgrywanie zdjęć</text>
+  <text class="func-text" text-anchor="middle" x="910" y="976">do Firebase Storage</text>
+
+  <rect class="function" x="420" y="1025" width="300" height="82" stroke-width="2"/>
+  <text class="func-text" text-anchor="middle" x="570" y="1058">Zapis danych</text>
+  <text class="func-text" text-anchor="middle" x="570" y="1086">w Firestore</text>
+
+  <rect class="function" x="760" y="1025" width="300" height="82" stroke-width="2"/>
+  <text class="func-text" text-anchor="middle" x="910" y="1058">Publikacja zmian</text>
+  <text class="func-text" text-anchor="middle" x="910" y="1086">na stronie</text>
+
+  <path class="arrow" d="M310 810 H368"/>
+  <path class="arrow" d="M720 846 H748"/>
+  <path class="arrow" d="M910 887 V903"/>
+  <path class="arrow" d="M720 956 H748"/>
+  <path class="arrow" d="M570 997 V1013"/>
+  <path class="arrow" d="M720 1066 H748"/>
+
+  <rect class="service" x="70" y="965" width="240" height="135" stroke-width="3"/>
+  <text class="service-title" text-anchor="middle" x="190" y="1012">Firebase</text>
+  <text class="service-text" text-anchor="middle" x="190" y="1046">Auth, Firestore,</text>
+  <text class="service-text" text-anchor="middle" x="190" y="1074">Storage</text>
+  <path class="support" d="M380 1032 H322"/>
+
+  <text class="caption" text-anchor="middle" x="600" y="1235">Panel CMS oddziela zarządzanie treścią od publicznego widoku portfolio.</text>
+</svg>

@@ -12,7 +12,9 @@
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,fit,backgrounds,calc}
 \usepackage{xcolor}
+\usepackage[hyphens]{url}
 \usepackage{ifdraft}
 \usepackage{float}
 \usepackage{varioref}
@@ -25,8 +27,21 @@
 \usepackage{ragged2e}
 \usepackage[absolute]{textpos}
 \usepackage{array}
+\usepackage{enumitem}
+\usepackage{titlesec}
 
 \usepackage{longtable}
+
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries}
+  {\chaptertitlename\ \thechapter}
+  {18pt}
+  {\Huge}
+\titlespacing*{\chapter}{0pt}{0pt}{28pt}
+\titlespacing*{\section}{0pt}{20pt}{10pt}
+\titlespacing*{\subsection}{0pt}{14pt}{8pt}
+
+\setlist[itemize]{topsep=6pt,itemsep=4pt,parsep=0pt,partopsep=0pt}
 
 
 \newlength{\HexCircleSize}
@@ -68,6 +83,7 @@
 
 
 \begin{document}
+\raggedbottom
 \begin{titlepage}
     \TPGrid[0mm,0mm]{5}{5}
     % \TPShowGrid{5}{5}

@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3600" height="1720" viewBox="0 0 1800 860">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4b5563"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/>
+    </marker>
+    <style>
+      .label { font: 700 30px Arial, Helvetica, sans-serif; fill: #111827; }
+      .small-label { font: 700 24px Arial, Helvetica, sans-serif; fill: #374151; }
+      .box-title { font: 700 28px Arial, Helvetica, sans-serif; fill: #111827; }
+      .box-text { font: 400 24px Arial, Helvetica, sans-serif; fill: #374151; }
+      .public { fill: #fff7f7; stroke: #ef4444; }
+      .neutral { fill: #f9fafb; stroke: #6b7280; }
+      .admin { fill: #f3f7ff; stroke: #2563eb; }
+      .group { fill: #ffffff; stroke: #d1d5db; }
+      .arrow { stroke: #4b5563; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .sync { stroke: #2563eb; stroke-width: 3; fill: none; stroke-dasharray: 12 10; marker-end: url(#arrow-blue); }
+    </style>
+  </defs>
+
+  <rect width="1800" height="860" fill="#ffffff"/>
+
+  <rect class="group" x="45" y="55" width="1710" height="405"/>
+  <text class="label" x="85" y="105">Część publiczna strony</text>
+
+  <rect class="group" x="45" y="535" width="1710" height="250"/>
+  <text class="label" x="85" y="585">Panel administracyjny i publikacja treści</text>
+
+  <rect class="public" x="95" y="155" width="270" height="105" stroke-width="3"/>
+  <text class="box-title" text-anchor="middle" x="230" y="198">Strona główna</text>
+  <text class="box-text" text-anchor="middle" x="230" y="232">hero + CTA</text>
+
+  <rect class="neutral" x="505" y="155" width="270" height="105" stroke-width="3"/>
+  <text class="box-title" text-anchor="middle" x="640" y="198">Portfolio</text>
+  <text class="box-text" text-anchor="middle" x="640" y="232">siatka projektów</text>
+
+  <rect class="neutral" x="915" y="155" width="270" height="105" stroke-width="3"/>
+  <text class="box-title" text-anchor="middle" x="1050" y="192">Szczegóły projektu</text>
+  <text class="box-text" text-anchor="middle" x="1050" y="228">lightbox</text>
+
+  <rect class="neutral" x="1325" y="155" width="270" height="105" stroke-width="3"/>
+  <text class="box-title" text-anchor="middle" x="1460" y="198">Kontakt</text>
+  <text class="box-text" text-anchor="middle" x="1460" y="232">formularz + dane</text>
+
+  <rect class="neutral" x="95" y="325" width="270" height="95" stroke-width="3"/>
+  <text class="box-title" text-anchor="middle" x="230" y="362">Showreel</text>
+  <text class="box-text" text-anchor="middle" x="230" y="397">materiał wideo</text>
+
+  <rect class="neutral" x="1325" y="325" width="270" height="95" stroke-width="3"/>
+  <text class="box-title" text-anchor="middle" x="1460" y="362">Social media</text>
+  <text class="box-text" text-anchor="middle" x="1460" y="397">odnośniki</text>
+
+  <path class="arrow" d="M365 207 H493"/>
+  <path class="arrow" d="M775 207 H903"/>
+  <path class="arrow" d="M1185 207 H1313"/>
+  <path class="arrow" d="M230 260 V313"/>
+  <path class="arrow" d="M1460 260 V313"/>
+
+  <rect class="admin" x="95" y="635" width="270" height="95" stroke-width="3"/>
+  <text class="box-title" text-anchor="middle" x="230" y="672">Logowanie</text>
+  <text class="box-text" text-anchor="middle" x="230" y="707">administratora</text>
+
+  <rect class="admin" x="505" y="635" width="270" height="95" stroke-width="3"/>
+  <text class="box-title" text-anchor="middle" x="640" y="672">Panel CMS</text>
+  <text class="box-text" text-anchor="middle" x="640" y="707">edycja treści</text>
+
+  <rect class="admin" x="915" y="635" width="270" height="95" stroke-width="3"/>
+  <text class="box-title" text-anchor="middle" x="1050" y="672">Firebase</text>
+  <text class="box-text" text-anchor="middle" x="1050" y="707">Auth, Firestore, Storage</text>
+
+  <rect class="admin" x="1325" y="635" width="270" height="95" stroke-width="3"/>
+  <text class="box-title" text-anchor="middle" x="1460" y="672">Opublikowana</text>
+  <text class="box-text" text-anchor="middle" x="1460" y="707">zawartość strony</text>
+
+  <path class="arrow" d="M365 682 H493"/>
+  <path class="arrow" d="M775 682 H903"/>
+  <path class="arrow" d="M1185 682 H1313"/>
+
+  <path class="sync" d="M1460 635 C1460 575 1545 555 1605 500 C1630 478 1640 454 1640 430"/>
+  <text class="small-label" text-anchor="middle" x="1545" y="545" fill="#2563eb">publikacja treści</text>
+</svg>

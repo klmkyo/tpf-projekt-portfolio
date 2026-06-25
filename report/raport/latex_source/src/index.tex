@@ -132,27 +132,89 @@ Na podstawie uzyskanych odpowiedzi określono następujący zestaw funkcji oraz 
 \chapter{Architektura informacji}
 
 Kluczowym z punktu widzenia tworzenia strony jest zadbanie o klarowne przekazanie informacji korzystającemu z witryny użytkownikowi.
-Projektowana strona przyjmie sprawdzoną strukturę, ze stroną główną umożliwiającą łatwą nawigację do specjalistycznych części witryny.
-Landing pełni rolę centralnego punktu nawigacyjnego, kierując użytkownika do kluczowych sekcji: portfolio (wideo i zdjęcia), strony „O mnie” oraz oferty. Najważniejszym elementem jest portfolio, które prowadzi do stron projektów, gdzie użytkownik otrzymuje szczegółowe informacje i zachętę do działania (CTA). 
-Całość kończy się w sekcji kontakt/kalendarz, stanowiącej punkt finalny ścieżki. Każdy z elementów ścieżki pod portfolio jest osiągalny ze strony głównej. 
-Równolegle działa panel CMS, który zasila wszystkie sekcje treścią i umożliwia ich aktualizację, pozostając poza bezpośrednią ścieżką użytkownika.
+Wdrożona strona przyjmuje zwartą strukturę, w której strona główna pełni jednocześnie funkcję prezentacyjną i nawigacyjną.
+Landing kieruje użytkownika do portfolio, showreela oraz kontaktu. Najważniejszym elementem pozostaje portfolio, które prezentuje projekty w siatce i pozwala otworzyć wybraną realizację w lightboxie.
+Ścieżka użytkownika kończy się w widoku kontaktu, gdzie dostępne są dane studia, formularz oraz odnośniki społecznościowe.
+Równolegle działa panel CMS, który zasila część publiczną treścią i umożliwia jej aktualizację bez bezpośredniej ingerencji w kod aplikacji.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.15]{../img/schemat_funkcjonalny.png}
+    \resizebox{\textwidth}{!}{\input{architektura_informacji_tikz}}
+    \caption{Schemat architektury informacji serwisu portfolio.}
 \end{figure}
+
+\chapter{Diagram funkcjonalności}
+
+\begin{figure}[H]
+    \centering
+    \resizebox{\textwidth}{!}{\input{diagram_funkcjonalnosci_tikz}}
+    \caption{Diagram funkcjonalności wdrożonej witryny portfolio.}
+\end{figure}
+
+Diagram funkcjonalności przedstawia główne interakcje użytkowników z wdrożoną witryną portfolio oraz zależności między częścią publiczną, panelem administracyjnym i usługami zewnętrznymi. Wyróżniono dwóch podstawowych aktorów: odwiedzającego stronę odbiorcę portfolio oraz administratora, który zarządza treścią serwisu. Osobno pokazano integracje techniczne wykorzystywane przez aplikację, ponieważ wpływają one na funkcje dostępne w panelu CMS oraz na pomiar użycia strony.
+
+Z perspektywy odbiorcy najważniejszą ścieżką jest przejście od strony głównej przez portfolio do szczegółów projektu lub kontaktu. Użytkownik może obejrzeć showreel, zapoznać się z projektami w układzie galerii, otworzyć wybraną realizację w lightboxie oraz skorzystać z formularza lub odnośników społecznościowych.
+
+Panel administracyjny pozostaje oddzielony od części publicznej i wymaga logowania. Administrator po uwierzytelnieniu może edytować treści strony, zmieniać projekty, przesyłać grafiki oraz zapisywać zmiany w Firebase. Zaktualizowane dane zasilają część publiczną serwisu, dzięki czemu portfolio może być rozwijane bez ingerencji w kod aplikacji.
 
 \chapter{Specyfikacja techniczna}
 \section{Design}
-Zgodnie z wypracowanymi wcześniej wymaganiami, proponuje się wstępne założenia dotyczące wyglądu witryny:
+Zgodnie z wypracowanymi wcześniej wymaganiami przygotowano minimalistyczny, graficzny interfejs oparty na dużej typografii, oszczędnej palecie kolorów oraz ekspozycji materiałów wizualnych. Poniżej przedstawiono główne założenia projektowe oraz zrzuty ekranowe z wdrożonej wersji serwisu.
 
 \subsection{Projekty okien}
 \begin{itemize}
-    \item Landing: układ hero (video/obraz), sekcja usług, ostatnie projekty, CTA.
-    \item Portfolio grid: masonry z filtrami po kategorii i tagach.
-    \item Strona projektu: player na górze, poniżej opis i galeria zdjęć.
-    \item Kontakt: formularz + kalendarz + dane kontaktowe.
+    \item Landing: duża sekcja hero z tłem graficznym, opisem marki, CTA do showreela i przejściem do portfolio.
+    \item Portfolio: responsywna siatka projektów z wyróżnioną pierwszą realizacją oraz kartami projektów.
+    \item Szczegóły projektu: lightbox pozwalający obejrzeć wybraną realizację bez opuszczania strony głównej.
+    \item Kontakt: formularz, adres e-mail, dane studia oraz odnośniki społecznościowe.
+    \item Panel CMS: ekran logowania i chroniony edytor treści portfolio dla administratora.
 \end{itemize}
+
+\subsection{Projekty graficzne wdrożonej witryny}
+
+Zrzuty ekranowe pokazują finalny charakter graficzny strony: mocny nagłówek, jasne tło, kontrastowe CTA, galerię projektów oraz osobne widoki kontaktu i logowania.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../img/screenshots/home-hero-desktop.png}
+    \caption{Strona główna - sekcja hero w widoku desktopowym.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../img/screenshots/portfolio-grid-desktop.png}
+    \caption{Strona główna - fragment siatki portfolio z projektami.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../img/screenshots/contact-desktop.png}
+    \caption{Podstrona kontaktowa z formularzem i danymi kontaktowymi.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../img/screenshots/reel-fullscreen-desktop.png}
+    \caption{Widok pełnoekranowego odtwarzacza filmu.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../img/screenshots/photo-fullscreen-desktop.png}
+    \caption{Widok pełnoekranowego lightboxu zdjęcia.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../img/screenshots/login-desktop.png}
+    \caption{Widok logowania do panelu CMS.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.55\textwidth]{../img/screenshots/home-hero-mobile-portrait.png}
+    \caption{Responsywny widok mobilny strony głównej.}
+\end{figure}
 
 \subsection{Kolory i typografia}
 \begin{itemize}
@@ -171,11 +233,14 @@ Zgodnie z wypracowanymi wcześniej wymaganiami, proponuje się wstępne założe
 \end{itemize}
 
 \section{Stos technologiczny}
-Wstępnie proponuje się technologie umożliwiające realizację ww. wymagań:
+Do realizacji wdrożonej wersji witryny zastosowano następujący stos technologiczny:
 \begin{itemize}
-    \item Frontend: Next.js + React + TypeScript
+    \item Frontend: Vite + React + TypeScript
+    \item Routing: React Router
     \item Stylowanie: Tailwind CSS
-    \item CMS: Strapi (headless) lub alternatywy (Sanity, Contentful)
-    \item Baza danych: PostgreSQL
-    \item Hosting: Vercel (Next.js) + hosting CMS (zarządzany) lub self-host
+    \item Panel treści: autorski panel administracyjny dostępny po zalogowaniu
+    \item Uwierzytelnianie i dane: Firebase Authentication, Firestore oraz Firebase Storage
+    \item Analityka: Google Analytics 4, Hotjar oraz Contentsquare
+    \item Hosting: Cloudflare Workers
+    \item Narzędzia budowania i wdrażania: pnpm oraz Wrangler
 \end{itemize}
